@@ -1,0 +1,34 @@
+<?php
+/**
+ * inkludovani interfacu
+ */
+include 'class/iustrednyVymazal.php'; 
+/**
+ * inkludovani abstraktni tridy
+ */
+include 'class/ustrednyVymazal.php';  
+/**
+ * inkludovani dedici tridy
+ */
+include 'class/ustrednaVymazal.php'; 
+
+/**
+ * atribut podle ktereho nastavime napeti
+ */
+$napetiVymazal= 24; 
+/**
+ * instance tridy ustrednaVymazal
+ */
+$newVymazal = new ustrednaVymazal(); 
+/**
+ * vypsani ve var dump constanty TYPE
+ */
+var_dump($newVymazal::TYPE); 
+/**
+ * nastaveni atributu pomoci instacniho pristupu k fuknci
+ */
+$newVymazal->setNapetiVymazal($napetiVymazal);      
+/**
+ * vypsani atributu ve var dump instancnim zpusobem
+ */
+var_dump($newVymazal->getNapetiVymazal());  
