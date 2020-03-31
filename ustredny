@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * abstraktni trida ktera se neda instancovat a implementuje interface
+ */
+
+abstract class ustrednyVymazal implements iustrednyVymazal{
+ /**
+  *atribut ktery je pristupny jen ve tride a tridach dedicich
+  * @var type 
+  */
+    protected $napetiVymazal; 
+  
+  /**
+   *funkce pro ziskani hodnoty atributu implementovana z interfacu
+   * @return type
+   */
+  
+    function getNapetiVymazal() {
+      return $this->napetiVymazal;
+  }
+
+  /**
+   * fuknce ktera nastavi hodnotu atributu implementovana z interfacu
+   * @param type $napetiVymazal
+   */
+   
+  function setNapetiVymazal($napetiVymazal) {
+      $this->napetiVymazal = $napetiVymazal;
+  }
+
+
+
+
+}
