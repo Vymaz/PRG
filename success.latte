@@ -1,0 +1,19 @@
+{* Latte template *}
+
+{block content}
+
+{foreach $odeslat as $keys => $item}
+    
+{if is_array($item)}
+
+    {foreach $item as $key => $items}
+    {$key} => {$items}<br>
+        {/foreach}
+    
+    {else}
+
+        {$keys} => {$item}<br>
+{/if}    
+
+    
+{/foreach}
