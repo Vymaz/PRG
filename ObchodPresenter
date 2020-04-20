@@ -1,0 +1,24 @@
+<?php
+
+
+
+
+namespace App\Presenters;
+
+
+
+
+class ObchodPresenter extends \Nette\Application\UI\Presenter{
+    
+    public function createComponentObchod($name) {
+           return new \Obchod($this, $name);
+    }
+    
+    public function actionSuccess($name) {
+           $odeslat = $this ->getRequest();
+  
+            $this->template->odeslat = $odeslat->post;
+
+       }
+    
+}
