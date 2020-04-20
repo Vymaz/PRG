@@ -1,0 +1,60 @@
+<?php
+
+
+/**
+ * Description of Obchod
+ *
+ * @author Michal
+ */
+class Obchod extends Nette\Application\UI\Form{
+   
+     public function __construct($parent, $name) {
+        parent::__construct();
+
+        $this->setAction($parent->link("Obchod:success"));
+
+        $this->setMethod("POST");
+
+         $this->addText('jmenoU', 'Jméno uživatele')
+                ->setRequired(TRUE);
+         
+        $this->addEmail('emailU', 'Email uživatele')
+                ->setRequired(TRUE)
+                ->addRule(\Nette\Forms\Form::EMAIL, 'Email je neplatny');
+        
+        $this->addPassword('heslo', 'Heslo')
+                ->setRequired(TRUE)
+                ->addRule(\Nette\Forms\Form::MIN_LENGTH, 'Heslo musi mit 6 znaku', 6);
+
+        $this->addPassword('heslo2', 'Heslo znovu')
+                ->setRequired(TRUE)
+                ->addRule(\Nette\Forms\Form::EQUAL, 'Hesla se neshoduji', $this['heslo']);
+
+        $this->addText('Nazev', 'Název potraviny')
+                ->setRequired('není nazev');
+
+        $this->addUpload('File', 'Fotka potraviny');
+
+        $this->addRadioList('Druh', 'Druh', array('ovoce', "zelenina", 'maso', 'sušenky'))
+                ->setRequired(TRUE);
+
+        $this->addSelect('poskozeni', 'Poškození obalu', array('Ano', 'Ne'))
+                ->setRequired(TRUE);
+
+        $this->addRadioList('Vaha', 'Váha', array('0-1kg', '2-10kg', '11<kg'))
+                ->setRequired(TRUE);
+
+        $this->addText('pocet', 'Počet')
+                ->setRequired(TRUE)
+                ->addRule(\Nette\Forms\Form::INTEGER, 'Neni cislo!');
+
+        $this->addSelect('Umisteni', 'Umístění', array('Prodejna', 'Sklad'))
+                ->setRequired(TRUE);
+
+        $this->addTextArea('Pripominka', 'Důležítá připomínka');
+
+
+        $this->addSubmit('Odeslat', 'Odeslat');
+    }
+
+}
