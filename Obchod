@@ -30,18 +30,18 @@ class Obchod extends Nette\Application\UI\Form{
                 ->setRequired(TRUE)
                 ->addRule(\Nette\Forms\Form::EQUAL, 'Hesla se neshoduji', $this['heslo']);
 
-        $this->addText('Nazev', 'Název potraviny')
+        $this->addText('Nazev', 'Název produktu')
                 ->setRequired('není nazev');
 
-        $this->addUpload('File', 'Fotka potraviny');
+        $this->addUpload('File', 'Fotka produktu');
 
-        $this->addRadioList('Druh', 'Druh', array('ovoce', "zelenina", 'maso', 'sušenky'))
+        $this->addRadioList('Urceni', 'Určení pro druh ryby', array('Kapr', "Cejn", 'Štika', 'Pstruh'))
                 ->setRequired(TRUE);
 
         $this->addSelect('poskozeni', 'Poškození obalu', array('Ano', 'Ne'))
                 ->setRequired(TRUE);
 
-        $this->addRadioList('Vaha', 'Váha', array('0-1kg', '2-10kg', '11<kg'))
+        $this->addRadioList('delka', 'Délka vlasce', array('50m', '300m', '600m'))
                 ->setRequired(TRUE);
 
         $this->addText('pocet', 'Počet')
